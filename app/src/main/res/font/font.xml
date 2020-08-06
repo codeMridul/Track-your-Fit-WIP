@@ -12,6 +12,4 @@
         android:font="@font/samkaran"
         android:fontStyle="normal"
         android:fontWeight="400" />
-
-
 </font-family>
