@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/setupFragment">
+
+    <fragment
+        android:id="@+id/runFragment"
+        android:name="com.moriarity_code.trackyourfit.fragment.RunFragment"
+        android:label="fragment_run"
+        tools:layout="@layout/fragment_run">
+        <action
+            android:id="@+id/action_runFragment_to_trackingFragment"
+            app:destination="@id/trackingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.moriarity_code.trackyourfit.fragment.SetupFragment"
+        android:label="SetupFragment">
+        <action
+            android:id="@+id/action_setupFragment_to_runFragment"
+            app:destination="@id/runFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.moriarity_code.trackyourfit.fragment.SettingFragment"
+        android:label="SettingFragment" />
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.moriarity_code.trackyourfit.fragment.TrackingFragment"
+        android:label="TrackingFragment">
+        <action
+            android:id="@+id/action_trackingFragment_to_runFragment"
+            app:destination="@id/runFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.moriarity_code.trackyourfit.fragment.StatisticsFragment"
+        android:label="StatisticsFragment" />
+</navigation>
