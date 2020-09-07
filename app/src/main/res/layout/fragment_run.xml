@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight">
 
     <!-- <Spinner
          android:id="@+id/spFilter"
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sort_by"
         android:textSize="16sp"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/spFilter"
         app:layout_constraintEnd_toStartOf="@+id/spFilter"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,8 +42,8 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
         android:src="@drawable/ic_add_black"
         app:backgroundTint="@color/colorAccent"
         app:fabSize="normal"

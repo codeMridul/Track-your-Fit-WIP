@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/your_name"
+            android:hint="@string/name"
             android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/your_weight"
+            android:hint="@string/weight"
             android:inputType="numberDecimal" />
 
     </com.google.android.material.textfield.TextInputLayout>
