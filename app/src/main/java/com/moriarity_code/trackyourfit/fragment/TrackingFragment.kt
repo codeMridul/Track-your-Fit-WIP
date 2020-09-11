@@ -1,5 +1,6 @@
 package com.moriarity_code.trackyourfit.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -7,22 +8,33 @@ import androidx.fragment.app.viewModels
 import com.google.android.gms.maps.GoogleMap
 import com.moriarity_code.trackyourfit.R
 import com.moriarity_code.trackyourfit.activity.viewModels.MainViewModel
+import com.moriarity_code.trackyourfit.services.TrackingService
+import com.moriarity_code.trackyourfit.utility.Constants.ACTION_START_OR_RESUME_SERVICE
 import kotlinx.android.synthetic.main.fragment_tracking.*
 
 
 class TrackingFragment : Fragment(R.layout.fragment_tracking) {
     private val viewModel: MainViewModel by viewModels()
-    private val map: GoogleMap? = null
+    private var map: GoogleMap? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        btnToggleRun.setOnClickListener {
+            sendCommandToService(ACTION_START_OR_RESUME_SERVICE)
+        }
 
         mapView?.onCreate(savedInstanceState)
         mapView?.getMapAsync {
-
+            map = it
 
         }
 
     }
+
+    private fun sendCommandToService(action: String) =
+        Intent(requireContext(), TrackingService::class.java).also {
+            it.action = action
+            requireContext().startService(it)
+        }
 
     override fun onResume() {
         super.onResume()
