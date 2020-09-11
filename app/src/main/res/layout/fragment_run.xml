@@ -6,23 +6,23 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight">
 
-    <!-- <Spinner
-         android:id="@+id/spFilter"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
+    <Spinner
+        android:id="@+id/spFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:entries="@array/filter_options"
-         android:paddingTop="8dp"
-         android:paddingBottom="8dp"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintTop_toTopOf="parent" />-->
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvFilterBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
         android:text="@string/sort_by"
         android:textSize="16sp"
-        android:layout_marginHorizontal="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/spFilter"
         app:layout_constraintEnd_toStartOf="@+id/spFilter"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +45,6 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
         android:src="@drawable/ic_add_black"
-        app:backgroundTint="@color/colorAccent"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -2,7 +2,14 @@
     <string name="app_name">Track Your Fit</string>
     <string name="developed_with_by_code_moriarity">Developed with ❤️ by code.Moriarity</string>
     <string name="app_logo">App Logo</string>
-    <string name="google_maps_key">AIzaSyCn1VqNMBxQ_9iH7FVpy-qx1Nl-Q-NMbb8</string>
+    <string-array name="filter_options">
+        <item>Date</item>
+        <item>Running Time</item>
+        <item>Distance</item>
+        <item>Average Speed</item>
+        <item>Calories Burned</item>
+    </string-array>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCn1VqNMBxQ_9iH7FVpy-qx1Nl-Q-NMbb8</string>
     <string name="yours_runs">Yours Runs</string>
     <string name="statistics">Statistics</string>
     <string name="settings">Settings</string>

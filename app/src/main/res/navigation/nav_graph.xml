@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/runFragment"
         android:name="com.moriarity_code.trackyourfit.fragment.RunFragment"
-        android:label="fragment_run"
+        android:label="RunFragment"
         tools:layout="@layout/fragment_run">
         <action
             android:id="@+id/action_runFragment_to_trackingFragment"
@@ -23,10 +23,6 @@
             app:destination="@id/runFragment" />
     </fragment>
     <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.moriarity_code.trackyourfit.fragment.SettingFragment"
-        android:label="SettingFragment" />
-    <fragment
         android:id="@+id/trackingFragment"
         android:name="com.moriarity_code.trackyourfit.fragment.TrackingFragment"
         android:label="TrackingFragment">
@@ -38,4 +34,8 @@
         android:id="@+id/statisticsFragment"
         android:name="com.moriarity_code.trackyourfit.fragment.StatisticsFragment"
         android:label="StatisticsFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.moriarity_code.trackyourfit.fragment.SettingsFragment"
+        android:label="SettingFragment" />
 </navigation>
