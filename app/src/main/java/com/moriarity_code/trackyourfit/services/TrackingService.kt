@@ -14,7 +14,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -34,6 +33,9 @@ import com.moriarity_code.trackyourfit.utility.Constants.NOTIFICATION_ID
 import com.moriarity_code.trackyourfit.utility.TrackingUtility
 import timber.log.Timber
 
+typealias Multiline = MutableList<LatLng>
+typealias Multilines = MutableList<Multiline>
+
 class TrackingService : LifecycleService() {
     var isFirstRun = true
 
@@ -41,7 +43,7 @@ class TrackingService : LifecycleService() {
 
     companion object {
         val isTracking = MutableLiveData<Boolean>()
-        val pathPoints = MutableLiveData<MutableList<MutableList<LatLng>>>()
+        val pathPoints = MutableLiveData<Multilines>()
     }
 
     private fun postInitialValues() {
@@ -54,7 +56,7 @@ class TrackingService : LifecycleService() {
         postInitialValues()
         fusedLocationProviderClient = FusedLocationProviderClient(this)
 
-        isTracking.observe(this, Observer {
+        isTracking.observe(this, {
             updateLocationTracking(it)
         })
 
@@ -69,9 +71,11 @@ class TrackingService : LifecycleService() {
                         isFirstRun = false
                     } else {
                         Timber.d("Resuming Services")
+                        startForegroundService()
                     }
                 }
                 ACTION_PAUSE_SERVICE -> {
+                    pauseService()
                     Timber.d("Paused service")
                 }
                 ACTION_STOP_SERVICE -> {
@@ -80,6 +84,10 @@ class TrackingService : LifecycleService() {
             }
         }
         return super.onStartCommand(intent, flags, startId)
+    }
+
+    private fun pauseService() {
+        isTracking.postValue(false)
     }
 
     private fun updateLocationTracking(isTracking: Boolean) {
@@ -101,7 +109,7 @@ class TrackingService : LifecycleService() {
         }
     }
 
-    val locationCallback = object : LocationCallback() {
+    private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult?) {
             super.onLocationResult(locationResult)
             if (isTracking.value!!) {
