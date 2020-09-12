@@ -17,6 +17,7 @@ import com.moriarity_code.trackyourfit.utility.Constants.ACTION_START_OR_RESUME_
 import com.moriarity_code.trackyourfit.utility.Constants.MAP_ZOOM
 import com.moriarity_code.trackyourfit.utility.Constants.POLYLINE_COLOR
 import com.moriarity_code.trackyourfit.utility.Constants.POLYLINE_WIDTH
+import com.moriarity_code.trackyourfit.utility.TrackingUtility
 import kotlinx.android.synthetic.main.fragment_tracking.*
 
 
@@ -28,6 +29,7 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
 
     private var map: GoogleMap? = null
 
+    private var currentTimeMillis = 0L
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -52,6 +54,12 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking) {
             pathPoints = it
             addLatestMultiLine()
             moveCameraToUser()
+        })
+
+        TrackingService.timeRunInMillis.observe(viewLifecycleOwner, {
+            currentTimeMillis = it
+            val formattedTime = TrackingUtility.getFormattedStopWatchTime(currentTimeMillis, true)
+            tvTimer.text = formattedTime
         })
     }
 
